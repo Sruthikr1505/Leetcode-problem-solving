@@ -1,0 +1,21 @@
+class Solution:
+    def merge(self, nums1: List[int], m: int, nums2: List[int], n: int) -> None:
+        """
+        Merges nums2 into nums1 in-place while maintaining sorted order.
+        Uses a three-pointer approach working from the end to achieve O(m+n) time complexity.
+        """
+        
+        last = m + n - 1    
+        first = m - 1       
+        second = n - 1      
+
+        
+        while second >= 0:
+           
+            if first >= 0 and nums1[first] > nums2[second]:
+                nums1[last] = nums1[first]  
+                first -= 1                  
+            else:
+                nums1[last] = nums2[second]  
+                second -= 1                  
+            last -= 1                                               
