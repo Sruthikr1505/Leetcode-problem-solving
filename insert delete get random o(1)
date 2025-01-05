@@ -1,8 +1,7 @@
 class RandomizedSet {
     private Map<Integer, Integer> valueToIndex; // Maps value to its index in the list
     private List<Integer> values; // Stores the values in the set
-    private Random random; // Random number generator
-
+    private Random random; 
     public RandomizedSet() {
         valueToIndex = new HashMap<>();
         values = new ArrayList<>();
@@ -21,15 +20,13 @@ class RandomizedSet {
     
     public boolean remove(int val) {
         if (!valueToIndex.containsKey(val)) {
-            return false; // Value does not exist
+            return false; 
         }
         // Swap the element to be removed with the last element in the list
         int index = valueToIndex.get(val);
         int lastElement = values.get(values.size() - 1);
-        values.set(index, lastElement); // Move the last element to the index
-        valueToIndex.put(lastElement, index); // Update its index in the map
-        
-        // Remove the last element
+        values.set(index, lastElement); 
+        valueToIndex.put(lastElement, index); 
         values.remove(values.size() - 1);
         valueToIndex.remove(val);
         return true;
